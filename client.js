@@ -61,19 +61,19 @@ function newObject(array) {
       person.bonusPercentage = 10;
     }
     else if (info.reviewRating === 4) {
-      person.bonusPercentage = 6;
+      person.bonusPercentage = 06;
     }
     else if (info.reviewRating === 3) {
-      person.bonusPercentage = 4;
+      person.bonusPercentage = 04;
     }
     else {
       person.bonusPercentage = 0;
     }
     if (info.employeeNumber.length === 4) {
-     person.bonusPercentage += 5;
+     person.bonusPercentage += 05;
     }
     if (info.annualSalary > 65000) {
-      person.bonusPercentage -= 1;
+      person.bonusPercentage -= 01;
     }
     if (person.bonusPercentage > 13){
       person.bonusPercentage = 13;
@@ -82,7 +82,7 @@ function newObject(array) {
       person.bonusPercentage = 0;
     }
      person.name = info.name;
-     person.totalBonus = Number(info.annualSalary * (person.bonusPercentage / 10));
+     person.totalBonus = Number(info.annualSalary * (person.bonusPercentage / 100));
      person.totalCompensation = Number(info.annualSalary) + person.totalBonus;
 
    bonusArray.push(person);
