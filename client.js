@@ -38,8 +38,14 @@ const employees = [
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
-
+$(document).ready(readyNow);
 console.log(employees);
+function readyNow(){
+  $('#clickMe').click(function(){
+    $('#bonuses').append(`<li>` + newObject(employees) + `</li>`)
+  })
+}
+
 
 function newObject(array) {
   let person = {}
