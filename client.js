@@ -42,7 +42,7 @@ $(document).ready(readyNow);
 console.log(employees);
 function readyNow(){
   $('#clickMe').click(function(){
-    $('#bonuses').append(`<li>` + newObject(employees) + `</li>`)
+   newObject(employees)
   })
 }
 
@@ -58,34 +58,40 @@ function newObject(array) {
       totalBonus: 0
     }
     if (info.reviewRating === 5) {
-      person.bonusPercentage = 0.1;
+      person.bonusPercentage = 1;
     }
     else if (info.reviewRating === 4) {
-      person.bonusPercentage = 0.06;
+      person.bonusPercentage = 6;
     }
     else if (info.reviewRating === 3) {
-      person.bonusPercentage = 0.04;
+      person.bonusPercentage = 4;
     }
     else {
       person.bonusPercentage = 0;
     }
     if (info.employeeNumber.length === 4) {
-     person.bonusPercentage += 0.05;
+     person.bonusPercentage += 5;
     }
     if (info.annualSalary > 65000) {
-      person.bonusPercentage -= 0.01;
+      person.bonusPercentage -= 1;
     }
-    if (person.bonusPercentage > 0.13){
-      person.bonusPercentage = 0.13;
+    if (person.bonusPercentage > 13){
+      person.bonusPercentage = 13;
     }
     else if (person.bonusPercentage < 0){
       person.bonusPercentage = 0;
     }
      person.name = info.name;
-     person.totalBonus =Number(info.annualSalary * person.bonusPercentage);
+     person.totalBonus = Number(info.annualSalary * (person.bonusPercentage / 10));
      person.totalCompensation = Number(info.annualSalary) + person.totalBonus;
 
    bonusArray.push(person);
+
+   $('#bonuses').append(`<li>` + 
+    `Name: ${person.name}  
+     Bonus Percentage: ${person.bonusPercentage}  
+     Total Compensation: ${person.totalCompensation}`
+   + `</li>`)
 
   }
 
