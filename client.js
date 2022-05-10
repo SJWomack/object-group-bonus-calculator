@@ -58,7 +58,7 @@ function newObject(array) {
       totalBonus: 0
     }
     if (info.reviewRating === 5) {
-      person.bonusPercentage = 1;
+      person.bonusPercentage = 10;
     }
     else if (info.reviewRating === 4) {
       person.bonusPercentage = 6;
